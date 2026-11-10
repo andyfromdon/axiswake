@@ -1,0 +1,31 @@
+{
+  "name": "axis-nz",
+  "version": "0.1.0",
+  "private": true,
+  "engines": {
+    "node": ">=24 <25"
+  },
+  "scripts": {
+    "dev": "node scripts/dev.mjs",
+    "build": "next build",
+    "start": "next start",
+    "typecheck": "tsc --noEmit",
+    "prepare:release": "node scripts/prepare-release.mjs",
+    "test:release": "node scripts/check-release.mjs",
+    "test:enquiry": "node scripts/check-enquiry.mjs",
+    "test:analytics": "node scripts/check-analytics.mjs"
+  },
+  "dependencies": {
+    "next": "16.2.6",
+    "nodemailer": "^10.4.0",
+    "react": "19.2.6",
+    "react-dom": "19.2.6"
+  },
+  "devDependencies": {
+    "@types/node": "22.19.19",
+    "@types/nodemailer": "^8.0.2",
+    "@types/react": "19.2.14",
+    "@types/react-dom": "19.2.3",
+    "typescript": "5.9.3"
+  }
+}

@@ -1,0 +1,91 @@
+name: Build and deploy to SiteHost
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: sitehost-${{ github.ref }}
+  cancel-in-progress: false
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci
+      - run: npm run build
+        env:
+          SITE_URL: https://axis-demo.don.digital
+      - run: npm run typecheck
+      - run: npm run prepare:release
+      - run: npm run test:release
+      - run: npm run test:enquiry
+      - run: npm run test:analytics
+      - run: tar -C release -czf axis-release.tgz .
+      - uses: actions/upload-artifact@v4
+        with:
+          name: axis-release
+          path: axis-release.tgz
+          retention-days: 7
+  deploy:
+    needs: build
+    if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request' && vars.SITEHOST_DEPLOY_ENABLED == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    environment:
+      name: demo
+      url: https://axis-demo.don.digital
+    env:
+      SITEHOST_HOST: ${{ secrets.SITEHOST_HOST }}
+      SITEHOST_USER: ${{ secrets.SITEHOST_USER }}
+      SITEHOST_HOST_KEY_SHA256: ${{ vars.SITEHOST_HOST_KEY_SHA256 }}
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          name: axis-release
+      - name: Configure verified SSH
+        env:
+          SITEHOST_SSH_KEY: ${{ secrets.SITEHOST_SSH_KEY }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          : "${SITEHOST_HOST:?Missing SiteHost host}"
+          : "${SITEHOST_USER:?Missing dedicated deployment user}"
+          : "${SITEHOST_SSH_KEY:?Missing deployment key}"
+          : "${SITEHOST_HOST_KEY_SHA256:?Missing trusted host fingerprint}"
+          install -d -m 700 "$HOME/.ssh"
+          printf '%s\n' "$SITEHOST_SSH_KEY" > "$HOME/.ssh/sitehost_key"
+          chmod 600 "$HOME/.ssh/sitehost_key"
+          ssh-keyscan -t ed25519 -H "$SITEHOST_HOST" > "$HOME/.ssh/known_hosts"
+          actual_fingerprint="$(ssh-keygen -lf "$HOME/.ssh/known_hosts" -E sha256 | awk 'NR == 1 { print $2 }')"
+          test "$actual_fingerprint" = "$SITEHOST_HOST_KEY_SHA256"
+      - name: Upload checked release
+        run: |
+          scp -i "$HOME/.ssh/sitehost_key" -o IdentitiesOnly=yes -o StrictHostKeyChecking=yes \
+            axis-release.tgz "$SITEHOST_USER@$SITEHOST_HOST:/container/application/.axis-release.tgz"
+      - name: Install and restart demo
+        run: |
+          ssh -i "$HOME/.ssh/sitehost_key" -o IdentitiesOnly=yes -o StrictHostKeyChecking=yes \
+            "$SITEHOST_USER@$SITEHOST_HOST" \
+            'cd /container/application && tar -xzf .axis-release.tgz && rm -f .axis-release.tgz && supervisorctl -c /container/config/supervisord.conf restart nodejs'
+      - name: Verify SiteHost mail connection
+        run: |
+          ssh -i "$HOME/.ssh/sitehost_key" -o IdentitiesOnly=yes -o StrictHostKeyChecking=yes \
+            "$SITEHOST_USER@$SITEHOST_HOST" \
+            'cd /container/application && node check-mail.cjs'
+      - name: Verify deployed revision
+        env:
+          EXPECTED_REVISION: ${{ github.sha }}
+        run: |
+          curl --fail --silent --show-error --retry 10 --retry-all-errors --retry-delay 2 \
+            https://axis-demo.don.digital/api/health > health.json
+          jq -e --arg revision "$EXPECTED_REVISION" \
+            '.status == "ok" and .application == "axis-nz" and .revision == $revision' health.json
+          curl --fail --silent --show-error --head https://axis-demo.don.digital/ | grep -i 'x-robots-tag:.*noindex'

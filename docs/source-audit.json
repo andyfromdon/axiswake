@@ -1,0 +1,249 @@
+{
+  "checkedAt": "2026-11-10",
+  "template": "Latest local Malibu build; independent copy without Git identity, secrets, runtime data or deployment credentials",
+  "modelScope": "International Axis lineup; NZ availability unconfirmed",
+  "models": [
+    {
+      "slug": "a245",
+      "source": "https://www.axiswake.com/boats/a-series/a245",
+      "specs": {
+        "Hull Length": "24' 5\" / 7.45m",
+        "Max Capacity": "18",
+        "Beam": "102\" / 2.59m",
+        "Draft": "32\" / 0.81m",
+        "Approx. Dry Weight": "5,500lbs. / 2,495kg",
+        "Fuel Capacity": "94 gal / 356L",
+        "Min Factory Ballast": "1,320lbs. / 598.7kg",
+        "Max Factory Ballast": "5,270lbs. / 2390kg",
+        "Power Torque": "360 HP/400 FT-LBS – 652 HP/670 FT-LBS",
+        "Hull Type": "Wake Plus"
+      },
+      "assets": [
+        "https://www.axiswake.com/sites/site.axiswake.com/files/styles/gallery_large/public/2026-09/A24527_Exterior_performance.jpg.webp?itok=GLsPL0Vf",
+        "https://www.axiswake.com/sites/site.axiswake.com/files/2026-09/A245%20Web.mp4",
+        "https://www.axiswake.com/sites/site.axiswake.com/files/styles/gallery_large/public/2026-09/A24527_Exterior_performance.jpg.webp?itok=GLsPL0Vf",
+        "https://www.axiswake.com/sites/site.axiswake.com/files/styles/gallery_large/public/2026-09/A2527_exterior_air_wakesurfing.jpg.webp?itok=qHSrkrxP",
+        "https://www.axiswake.com/sites/site.axiswake.com/files/styles/gallery_large/public/2026-09/A2527_Interior_lounge.jpg.webp?itok=FOsTVHxU",
+        "https://www.axiswake.com/sites/site.axiswake.com/files/styles/gallery_large/public/2026-09/A2527_Interior_surf_settings.jpg.webp?itok=mpyzXVbx",
+        "https://www.axiswake.com/sites/site.axiswake.com/files/styles/gallery_large/public/2026-09/A2527_Interior_dash.jpg.webp?itok=Wg1DiFCH",
+        "https://www.axiswake.com/sites/site.axiswake.com/files/styles/gallery_large/public/2026-09/A2527_Interior_lounge_in_bow.jpg.webp?itok=T9LpCa4P",
+        "https://www.axiswake.com/sites/site.axiswake.com/files/styles/gallery_large/public/2026-09/A24527_Exterior_side_running_shot.jpg.webp?itok=4rUnnt3C",
+        "https://www.axiswake.com/sites/site.axiswake.com/files/styles/gallery_large/public/2026-09/A2527_exterior_foiling.jpg.webp?itok=tEf8lhcS",
+        "https://www.axiswake.com/sites/site.axiswake.com/files/styles/gallery_large/public/2026-09/A2527_exterior_getting_ready_to_ride.jpg.webp?itok=j0YEPeq9",
+        "https://www.axiswake.com/sites/site.axiswake.com/files/styles/gallery_large/public/2026-09/A2527_exterior_wakesurf.jpg.webp?itok=6tj0NKur",
+        "https://www.axiswake.com/sites/site.axiswake.com/files/styles/gallery_large/public/2026-09/A2527_Exterior_still.jpg.webp?itok=n4lBEKvR",
+        "https://www.axiswake.com/sites/site.axiswake.com/files/styles/gallery_large/public/2026-09/A2527_Exterior_back_of_boat.jpg.webp?itok=MDVU3gjr",
+        "https://www.axiswake.com/sites/site.axiswake.com/files/styles/gallery_large/public/2026-09/A2527_Exterior_friends_lounging.jpg.webp?itok=crauB-LV",
+        "https://www.axiswake.com/sites/site.axiswake.com/files/styles/gallery_large/public/2026-09/MY27_A245-Overhead-Render_1380x900.png.webp?itok=zgaoCaqj"
+      ]
+    },
+    {
+      "slug": "a225",
+      "source": "https://www.axiswake.com/boats/a-series/a225",
+      "specs": {
+        "Hull Length": "22'5\" / 6.83m",
+        "Max Capacity": "15",
+        "Beam": "102\" / 2.59m",
+        "Draft": "27\" / 0.69m",
+        "Approx. Dry Weight": "4,900 lbs. / 2,223kg",
+        "Fuel Capacity": "56 gal / 212L",
+        "Min Factory Ballast": "1,125 lbs. / 510.3kg",
+        "Max Factory Ballast": "4,175 lbs. / 1,894kg",
+        "Power Torque": "360 HP/400 FT-LBS – 430 HP/460 FT-LBS",
+        "Hull Type": "Wake Plus"
+      },
+      "assets": [
+        "https://www.axiswake.com/sites/site.axiswake.com/files/styles/gallery_large/public/2026-09/A22527_exterior_performace_1380x900.jpg.webp?itok=UMtEXxfC",
+        "https://www.axiswake.com/sites/site.axiswake.com/files/2026-09/Web%20Loop.mp4",
+        "https://www.axiswake.com/sites/site.axiswake.com/files/styles/gallery_large/public/2026-09/A22527_exterior_performace_1380x900.jpg.webp?itok=UMtEXxfC",
+        "https://www.axiswake.com/sites/site.axiswake.com/files/styles/gallery_large/public/2026-09/A22527_exterior_runningshot1380x900.jpg.webp?itok=sdUsCWai",
+        "https://www.axiswake.com/sites/site.axiswake.com/files/styles/gallery_large/public/2026-09/A22527_exterior_runningshot_1380x900.jpg.webp?itok=fxE6DZ6D",
+        "https://www.axiswake.com/sites/site.axiswake.com/files/styles/gallery_large/public/2026-09/A22527_interior-lounge-rear_1380x900.png.webp?itok=pkiesA4_",
+        "https://www.axiswake.com/sites/site.axiswake.com/files/styles/gallery_large/public/2026-09/A22527_interior-lounge_1380x900.png.webp?itok=88qaEALC",
+        "https://www.axiswake.com/sites/site.axiswake.com/files/styles/gallery_large/public/2026-09/A22527_interior-ldash_1380x900.png.webp?itok=lUEVkPmy",
+        "https://www.axiswake.com/sites/site.axiswake.com/files/styles/gallery_large/public/2026-09/A22527_exterior_still_shot_1380x900.jpg.webp?itok=jatTbGnn",
+        "https://www.axiswake.com/sites/site.axiswake.com/files/styles/gallery_large/public/2026-09/A22527_exterior_side_running_shot_1380x900.jpg.webp?itok=3WzUbFoT",
+        "https://www.axiswake.com/sites/site.axiswake.com/files/styles/gallery_large/public/2026-09/A22527_exterior_wakesurfing1380x900.jpg.webp?itok=YCiqsuDo",
+        "https://www.axiswake.com/sites/site.axiswake.com/files/styles/gallery_large/public/2026-09/A22527_exterior_water_performance1380x900.jpg.webp?itok=TFudVJXW",
+        "https://www.axiswake.com/sites/site.axiswake.com/files/styles/gallery_large/public/2026-09/A22527_exterior_front_bow_shot_1380x900.jpg.webp?itok=v-qTIlvo",
+        "https://www.axiswake.com/sites/site.axiswake.com/files/styles/gallery_large/public/2026-09/A22527_exterior_still_1380x900.jpg.webp?itok=gV69va6W",
+        "https://www.axiswake.com/sites/site.axiswake.com/files/styles/gallery_large/public/2026-09/MY27_A225-Overhead-Render_1380x900.png.webp?itok=xnXFarjT"
+      ]
+    },
+    {
+      "slug": "a200",
+      "source": "https://www.axiswake.com/boats/a-series/a200",
+      "specs": {
+        "Hull Length": "20'4\" / 6.19m",
+        "Max Capacity": "11",
+        "Beam": "98\" / 2.49m",
+        "Draft": "27\" / 0.69m",
+        "Approx. Dry Weight": "3,950 lbs. / 1,792 kg",
+        "Fuel Capacity": "40 gal / 151.4L",
+        "Min Factory Ballast": "760 lbs. / 344.7 kg",
+        "Max Factory Ballast": "3,510 lbs. / 1,592 kg",
+        "Power Torque": "360 HP/400 FT-LBS – 430 HP/460 FT-LBS",
+        "Hull Type": "Wake Plus"
+      },
+      "assets": [
+        "https://www.axiswake.com/sites/site.axiswake.com/files/styles/gallery_large/public/2026-07/axis-my26-a200-exterior-lifestyle.jpg.webp?itok=vJDDWIUi",
+        "https://www.axiswake.com/sites/site.axiswake.com/files/2026-09/Web%20loop_0.mp4",
+        "https://www.axiswake.com/sites/site.axiswake.com/files/styles/gallery_large/public/2026-07/axis-my26-a200-exterior-lifestyle.jpg.webp?itok=vJDDWIUi",
+        "https://www.axiswake.com/sites/site.axiswake.com/files/styles/gallery_large/public/2026-07/axis-my26-a200-exterior-running.jpg.webp?itok=Ue88Bei3",
+        "https://www.axiswake.com/sites/site.axiswake.com/files/styles/gallery_large/public/2026-07/axis-my26-a200-interior-detail-2.png.webp?itok=hQRq9cLc",
+        "https://www.axiswake.com/sites/site.axiswake.com/files/styles/gallery_large/public/2026-07/axis-my26-a200-interior-lifestyle.jpg.webp?itok=EMczNS_z",
+        "https://www.axiswake.com/sites/site.axiswake.com/files/styles/gallery_large/public/2026-07/axis-my26-a200-interior-detail.jpg.webp?itok=WxCirrv7",
+        "https://www.axiswake.com/sites/site.axiswake.com/files/styles/gallery_large/public/2026-07/axis-my26-a200-wakesurf-performance.jpg.webp?itok=qhrXK3zE",
+        "https://www.axiswake.com/sites/site.axiswake.com/files/styles/gallery_large/public/2026-07/axis-my26-a200-performance.jpg.webp?itok=UZn3Iq6a",
+        "https://www.axiswake.com/sites/site.axiswake.com/files/styles/gallery_large/public/2026-07/axis-my26-a200-wake-foiling-performance.jpg.webp?itok=z5Hn9gGT",
+        "https://www.axiswake.com/sites/site.axiswake.com/files/styles/gallery_large/public/2026-07/axis-my26-a200-wakeboard-performance.jpg.webp?itok=1QxOrtog",
+        "https://www.axiswake.com/sites/site.axiswake.com/files/styles/gallery_large/public/2026-09/MY27_A200-Overhead-Render_1380x900.png.webp?itok=MDdIhGdV"
+      ]
+    },
+    {
+      "slug": "t250",
+      "source": "https://www.axiswake.com/boats/t-series/t250",
+      "specs": {
+        "Hull Length": "25' / 7.62m",
+        "Max Capacity": "18",
+        "Beam": "102\" / 2.59m",
+        "Draft": "32\" / 0.81m",
+        "Approx. Dry Weight": "5,500 lbs. / 2,495 kg",
+        "Fuel Capacity": "91 gal / 344.4L",
+        "Min Factory Ballast": "1,620 lbs. / 735.8 kg",
+        "Max Factory Ballast": "4,870 lbs. / 2,209 kg",
+        "Power Torque": "360 HP/400 FT-LBS – 652 HP/670 FT-LBS",
+        "Hull Type": "Wake Plus"
+      },
+      "assets": [
+        "https://www.axiswake.com/sites/site.axiswake.com/files/styles/gallery_large/public/2026-07/axis-my26-t250-exterior-running.jpg.webp?itok=zeIV6HEh",
+        "https://www.axiswake.com/sites/site.axiswake.com/files/2026-09/Web%20loop.mp4",
+        "https://www.axiswake.com/sites/site.axiswake.com/files/styles/gallery_large/public/2026-07/axis-my26-t250-exterior-running.jpg.webp?itok=zeIV6HEh",
+        "https://www.axiswake.com/sites/site.axiswake.com/files/styles/gallery_large/public/2026-07/axis-my26-t250-interior-lifestyle.jpg.webp?itok=uXCyOfQa",
+        "https://www.axiswake.com/sites/site.axiswake.com/files/styles/gallery_large/public/2026-07/axis-my26-t250-exterior-lifestyle-2.jpg.webp?itok=SWI5LLam",
+        "https://www.axiswake.com/sites/site.axiswake.com/files/styles/gallery_large/public/2026-07/axis-my26-t250-interior-detail.jpg.webp?itok=2uAnZvhn",
+        "https://www.axiswake.com/sites/site.axiswake.com/files/styles/gallery_large/public/2026-07/axis-my26-t250-interior-detail-2.jpg.webp?itok=bSXpZXf2",
+        "https://www.axiswake.com/sites/site.axiswake.com/files/styles/gallery_large/public/2026-07/axis-my26-t250-wakesurf-3.jpg.webp?itok=c56jo5Lh",
+        "https://www.axiswake.com/sites/site.axiswake.com/files/styles/gallery_large/public/2026-07/axis-my26-t250-performance.jpg.webp?itok=ME0NmM4Y",
+        "https://www.axiswake.com/sites/site.axiswake.com/files/styles/gallery_large/public/2026-07/axis-my26-t250-wake-foiling-performance.jpg.webp?itok=5ctho-65",
+        "https://www.axiswake.com/sites/site.axiswake.com/files/styles/gallery_large/public/2026-07/axis-my26-t250-wakeboard-performance.jpg.webp?itok=s_aSvJXH",
+        "https://www.axiswake.com/sites/site.axiswake.com/files/styles/gallery_large/public/2026-09/MY27_T250-Overhead-Render_1380x900.png.webp?itok=u--970Le"
+      ]
+    },
+    {
+      "slug": "t235",
+      "source": "https://www.axiswake.com/boats/t-series/t235",
+      "specs": {
+        "Hull Length": "23'5\" / 7.14m",
+        "Max Capacity": "16",
+        "Beam": "102\" / 2.59m",
+        "Draft": "32\" / 0.81m",
+        "Approx. Dry Weight": "5,300lbs. / 2,404kg",
+        "Fuel Capacity": "64gal / 242.2L",
+        "Min Factory Ballast": "1,330lbs. / 603.3kg",
+        "Max Factory Ballast": "4,380lbs. / 1,987kg",
+        "Power Torque": "360 HP/400 FT-LBS – 652 HP/670 FT-LBS",
+        "Hull Type": "Wake Plus"
+      },
+      "assets": [
+        "https://www.axiswake.com/sites/site.axiswake.com/files/styles/gallery_large/public/2026-07/axis-my27-t235-exterior1380x920_0.jpg.webp?itok=U_X1MHXf",
+        "https://www.axiswake.com/sites/site.axiswake.com/files/2026-07/A_MY27_T235_Loop-1920x960.mp4",
+        "https://www.axiswake.com/sites/site.axiswake.com/files/styles/gallery_large/public/2026-07/axis-my27-t235-exterior1380x920_0.jpg.webp?itok=U_X1MHXf",
+        "https://www.axiswake.com/sites/site.axiswake.com/files/styles/gallery_large/public/2026-07/axis-my27-t235-side-profile1380x920_0.jpg.webp?itok=a4qKFgic",
+        "https://www.axiswake.com/sites/site.axiswake.com/files/styles/gallery_large/public/2026-07/axis-my27-t235-logo-gel1380x920_0.jpg.webp?itok=oiXg6Gxz",
+        "https://www.axiswake.com/sites/site.axiswake.com/files/styles/gallery_large/public/2026-07/axis-my27-t235-axis-logo-closeup1380x920_0.jpg.webp?itok=Qgd1OXAp",
+        "https://www.axiswake.com/sites/site.axiswake.com/files/styles/gallery_large/public/2026-07/axis-my27-t235-swim-platform1380x920_0.jpg.webp?itok=IjdLymPS",
+        "https://www.axiswake.com/sites/site.axiswake.com/files/styles/gallery_large/public/2026-07/axis-my27-t235-helm1380x920_0.jpg.webp?itok=ukQrkGT9",
+        "https://www.axiswake.com/sites/site.axiswake.com/files/styles/gallery_large/public/2026-07/axis-my27-t235-helm-dashboard-studio.jpg.webp?itok=EAXmUMkT",
+        "https://www.axiswake.com/sites/site.axiswake.com/files/styles/gallery_large/public/2026-07/axis-my27-t235-captains-helm-seat-studio.jpg.webp?itok=Np9zAwkz",
+        "https://www.axiswake.com/sites/site.axiswake.com/files/styles/gallery_large/public/2026-07/axis-my27-t235-rear-transom-seating-studio.jpg.webp?itok=TXNtgKaJ",
+        "https://www.axiswake.com/sites/site.axiswake.com/files/styles/gallery_large/public/2026-07/axis-my27-t235-walkthrough-cushion1380x920_0.jpg.webp?itok=oeZo3J7q",
+        "https://www.axiswake.com/sites/site.axiswake.com/files/styles/gallery_large/public/2026-07/axis-my27-t235-cockpit-interior-overview-studio.jpg.webp?itok=t0zDKk60",
+        "https://www.axiswake.com/sites/site.axiswake.com/files/styles/gallery_large/public/2026-07/axis-my27-t235-cockpit-lounge-seating-studio.jpg.webp?itok=010-2pG6",
+        "https://www.axiswake.com/sites/site.axiswake.com/files/styles/gallery_large/public/2026-07/axis-my27-t235-trashcan1380x920_0.jpg.webp?itok=9c6OjvyQ",
+        "https://www.axiswake.com/sites/site.axiswake.com/files/styles/gallery_large/public/2026-07/axis-my27-t235-bow-lounge-seating-studio.jpg.webp?itok=H0wOphkN",
+        "https://www.axiswake.com/sites/site.axiswake.com/files/styles/gallery_large/public/2026-07/axis-my27-t235-bow1380x920_0.jpg.webp?itok=nsy2HfrM",
+        "https://www.axiswake.com/sites/site.axiswake.com/files/styles/gallery_large/public/2026-07/axis-my27-t235-lounge1380x920_0.jpg.webp?itok=GPSqt2nG",
+        "https://www.axiswake.com/sites/site.axiswake.com/files/styles/gallery_large/public/2026-07/axis-my27-t235-cooler1380x920_0.jpg.webp?itok=HVOXwyQe",
+        "https://www.axiswake.com/sites/site.axiswake.com/files/styles/gallery_large/public/2026-07/axis-my27-t235-wakeview-bench1380x920_0.jpg.webp?itok=wTcwFE07",
+        "https://www.axiswake.com/sites/site.axiswake.com/files/styles/gallery_large/public/2026-09/MY27_T235-Overhead-Render_1380x900.png.webp?itok=JKxBjUFv"
+      ]
+    },
+    {
+      "slug": "t220",
+      "source": "https://www.axiswake.com/boats/t-series/t220",
+      "specs": {
+        "Hull Length": "22' / 6.71m",
+        "Max Capacity": "15",
+        "Beam": "102\" / 2.59m",
+        "Draft": "27\" / 0.69m",
+        "Approx. Dry Weight": "5,100lbs. / 2,313kg",
+        "Fuel Capacity": "60 gal / 227.1L",
+        "Min Factory Ballast": "1,221lbs. / 553.8kg",
+        "Max Factory Ballast": "3,971lbs. / 1,801kg",
+        "Power Torque": "360 HP/400 FT-LBS – 430 HP/460 FT-LBS",
+        "Hull Type": "Wake Plus"
+      },
+      "assets": [
+        "https://www.axiswake.com/sites/site.axiswake.com/files/styles/gallery_large/public/2026-07/axis-my27-t220-exterior-full1380x920.jpg.webp?itok=H_SYfE_C",
+        "https://www.axiswake.com/sites/site.axiswake.com/files/2026-07/A_MY27_T220_Loop_2400x1200.mp4",
+        "https://www.axiswake.com/sites/site.axiswake.com/files/styles/gallery_large/public/2026-07/axis-my27-t220-exterior-full1380x920.jpg.webp?itok=H_SYfE_C",
+        "https://www.axiswake.com/sites/site.axiswake.com/files/styles/gallery_large/public/2026-07/axis-my27-t220-wakesurf-side-profile1380x920.jpg.webp?itok=mtzv-lN9",
+        "https://www.axiswake.com/sites/site.axiswake.com/files/styles/gallery_large/public/2026-07/axis-my27-t220-surf-prep1380x920.jpg.webp?itok=w-iiV77l",
+        "https://www.axiswake.com/sites/site.axiswake.com/files/styles/gallery_large/public/2026-07/axis-my27-t220-exterior-logo1380x920.jpg.webp?itok=zCh8CFHo",
+        "https://www.axiswake.com/sites/site.axiswake.com/files/styles/gallery_large/public/2026-07/axis-my27-t220-swimstep1380x920.jpg.webp?itok=Vkm53Ez-",
+        "https://www.axiswake.com/sites/site.axiswake.com/files/styles/gallery_large/public/2026-07/axis-my27-t220-helm-dashboard-studio.jpg.webp?itok=37PluOH4",
+        "https://www.axiswake.com/sites/site.axiswake.com/files/styles/gallery_large/public/2026-07/axis-my27-t220-dash-storage-wireless-charging-studio.jpg.webp?itok=wHzzcivp",
+        "https://www.axiswake.com/sites/site.axiswake.com/files/styles/gallery_large/public/2026-07/axis-my27-t220-trashcan1380x920.jpg.webp?itok=YPu7B0Uv",
+        "https://www.axiswake.com/sites/site.axiswake.com/files/styles/gallery_large/public/2026-07/axis-my27-t220-storage1380x920.jpg.webp?itok=kaIkx2Rx",
+        "https://www.axiswake.com/sites/site.axiswake.com/files/styles/gallery_large/public/2026-07/axis-my27-t220-cockpit-interior-overview-studio.jpg.webp?itok=KGRI_73z",
+        "https://www.axiswake.com/sites/site.axiswake.com/files/styles/gallery_large/public/2026-07/axis-my27-t220-captains-helm-seat-studio.jpg.webp?itok=GNVfD96Y",
+        "https://www.axiswake.com/sites/site.axiswake.com/files/styles/gallery_large/public/2026-07/axis-my27-t220-wakesurf1380x920.jpg.webp?itok=LL2E7ELP",
+        "https://www.axiswake.com/sites/site.axiswake.com/files/styles/gallery_large/public/2026-07/axis-my27-t220-helm1380x920.jpg.webp?itok=8q2CYZj1",
+        "https://www.axiswake.com/sites/site.axiswake.com/files/styles/gallery_large/public/2026-07/axis-my27-t220-cupholder1380x920.jpg.webp?itok=1p7RU0ja",
+        "https://www.axiswake.com/sites/site.axiswake.com/files/styles/gallery_large/public/2026-07/axis-my27-t220-board-racks1380x920.jpg.webp?itok=3_2iGNWa",
+        "https://www.axiswake.com/sites/site.axiswake.com/files/styles/gallery_large/public/2026-09/MY27_T220-Overhead-Render_1380x900.png.webp?itok=cwYIgn7e"
+      ]
+    }
+  ],
+  "editorial": [
+    {
+      "slug": "why-axis/innovations",
+      "source": "https://www.axiswake.com/why-axis/innovations"
+    },
+    {
+      "slug": "why-axis/dash",
+      "source": "https://www.axiswake.com/why-axis/dash"
+    },
+    {
+      "slug": "why-axis/monsoon-engines",
+      "source": "https://www.axiswake.com/why-axis/monsoon-engines"
+    },
+    {
+      "slug": "community/owners",
+      "source": "https://www.axiswake.com/owners"
+    },
+    {
+      "slug": "community/athletes-ambassadors",
+      "source": "https://www.axiswake.com/community/athletes-ambassadors"
+    },
+    {
+      "slug": "community/wake-responsibly",
+      "source": "https://www.axiswake.com/community/wake-responsibly"
+    },
+    {
+      "slug": "blog",
+      "source": "https://www.axiswake.com/blog"
+    },
+    {
+      "slug": "newsroom",
+      "source": "https://www.axiswake.com/newsroom"
+    }
+  ],
+  "dealer": "https://apws.co.nz/",
+  "notes": [
+    "No US prices, financing offers or warranty terms used.",
+    "Dealer opening hours follow apws.co.nz: Saturday 9am–1pm.",
+    "Stock links to multi-brand dealer catalogue until an Axis-specific filter is verified."
+  ]
+}

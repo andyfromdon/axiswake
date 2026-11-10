@@ -1,0 +1,25 @@
+import {readFileSync} from 'node:fs';
+import vm from 'node:vm';
+import assert from 'node:assert/strict';
+import ts from 'typescript';
+const source=readFileSync('app/lib/analytics.ts','utf8');
+const code=ts.transpileModule(source,{compilerOptions:{module:ts.ModuleKind.CommonJS}}).outputText;
+const stored=new Map();
+const context={exports:{},window:{},sessionStorage:{getItem:k=>stored.get(k),setItem:(k,v)=>stored.set(k,v)}};
+vm.runInNewContext(code,context);
+context.exports.track('page_view','/contact?email=private@example.com');
+context.exports.track('page_view','/boat/private-name');
+assert(context.window.dataLayer.every(e=>e.page_path==='/other'));
+const id='12345678-1234-1234-1234-123456789abc';
+context.exports.trackLead(id,'/contact','demo');context.exports.trackLead(id,'/contact','demo');
+assert.equal(context.window.dataLayer.filter(e=>e.event==='generate_lead').length,1);
+assert.deepEqual(Object.keys(context.window.dataLayer[2]).sort(),['event','lead_type','page_path']);
+assert(!JSON.stringify(context.window.dataLayer).includes(id));
+vm.runInNewContext(code,{...context,exports:{}}); // A fresh module still honours session deduplication.
+const second={...context,exports:{}};vm.runInNewContext(code,second);second.exports.trackLead(id,'/contact','demo');
+assert.equal(context.window.dataLayer.length,3);
+context.sessionStorage.getItem=()=>{throw Error('blocked')};
+context.exports.trackLead('abcdefab-1234-1234-1234-123456789abc','/stock','stock');
+assert.equal(context.window.dataLayer.length,4);
+const server={exports:{}};vm.runInNewContext(code,server);server.exports.track('page_view','/');
+console.log('Analytics verified: route privacy, no enquiry identifiers, lead deduplication, storage failure and SSR.');
