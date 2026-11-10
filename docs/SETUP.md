@@ -6,12 +6,14 @@
 - GitHub Actions build and release checks passed.
 - Desktop/mobile review covered homepage, menu, model search, series keyboard navigation and gallery/lightbox. Mobile menu spacing corrected.
 - All 129 official media references responded successfully.
-- SiteHost deployment is prepared but remains gated until dedicated access and SSL are ready.
+- Live demo: https://axis-demo.don.digital/.
+- GitHub Actions deployed successfully to the separate SiteHost container; HTTPS, deployed revision and noindex checks passed.
+- Axis-only deployment access is configured with read-only configuration, encrypted GitHub Actions secrets and a pinned SSH host fingerprint.
 - Demo remains excluded from search.
 
-## Before enabling deployment
+## Deployment
 
-Configure an Axis-only deployment account and encrypted CI secrets, verify the trusted host fingerprint, enable SSL and then trigger the deployment workflow. Verify the deployed application revision and noindex response before sharing the demo.
+Pushes to main run the production build, release and integration checks before deploying. The workflow verifies the application revision and noindex response after restarting the Axis demo. Production launch and direct enquiry delivery remain separate decisions.
 
 ## Content and integrations
 
