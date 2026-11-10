@@ -21,3 +21,16 @@ Pushes to main run the production build, release and integration checks before d
 - No US financing, pricing or warranty promises.
 - Enquiries prepare an email draft for the visitor to review and send. Direct server email is disabled until configured.
 - Stock links to the dealer's multi-brand catalogue; Axis-only inventory filtering is a later integration check.
+
+## Development launch review — 10 November 2026
+
+The requested launch scope is the development site at https://axis-demo.don.digital/.
+
+- Corrected tablet header overlap by moving the build CTA into the existing menu below 901px.
+- Gave the model navigation, gallery and enquiry components distinct React keys; fresh browser checks no longer report duplicate-key errors.
+- Declared smooth-scroll behaviour for Next.js route transitions; the browser warning is resolved.
+- Reviewed desktop search, mobile menu, gallery/lightbox controls and focus return, series keyboard navigation, model-prefilled enquiries and required fields.
+- Production build, TypeScript, standalone release (23 pages and 33 internal resources), local SMTP enquiry checks and analytics checks passed. No external test email was sent.
+- Next.js still emits a non-blocking file-tracing warning for the enquiry route; the standalone release passes its checks.
+
+Before a later production launch, confirm the production domain, NZ range and dealer content; configure and verify direct enquiry delivery and matching privacy copy; decide stock integration and analytics configuration. Pricing can remain enquiry-based. The development site remains noindex, its form prepares email drafts, and no external analytics tag is configured.

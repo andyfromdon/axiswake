@@ -32,3 +32,5 @@ html:has(.model-nav){scroll-padding-top:168px}.model-nav{height:64px;padding:0 5
 
 :root{--ink:#171717;--cream:#f2f1ef;--blue:#d92228;--line:#d6d6d3}.menu-series{grid-template-columns:repeat(2,minmax(0,1fr));max-width:1100px;margin:auto}.menu-series img{height:180px}.logo img,.menu-top img,.footer-brand img{filter:brightness(0) invert(1)}.boat-card>div img{object-fit:cover}.form-note{font-size:14px}.series-models{font-weight:700}@media(max-width:650px){.menu-series img{height:110px}}
 @media(max-width:650px){.menu-series{grid-template-columns:1fr}.menu-series img{height:90px}}.model-nav a[aria-current=location]{border-color:var(--blue)}
+/* Keep the centred logo clear of the tablet header actions. The builder remains in the menu. */
+@media(max-width:900px){.header-actions .button{display:none}}
