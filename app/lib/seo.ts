@@ -3,13 +3,13 @@ import models from '../data/models.json';
 import editorial from '../data/editorial.json';
 import {series,media} from '../data/site';
 import {productionOrigin} from './launch';
-export const publicPaths=['/','/boats','/contact','/stock','/build-a-boat','/privacy-policy',...series.map(s=>'/boats/'+s.slug),...models.map(m=>'/boat/'+m.slug),...editorial.map(p=>'/'+p.slug)];
+export const publicPaths=['/','/boats','/contact','/stock','/community','/privacy-policy',...series.map(s=>'/boats/'+s.slug),...models.map(m=>'/boat/'+m.slug),...editorial.map(p=>'/'+p.slug)];
 const pages:Record<string,[string,string]>={
  '':['Axis Boats New Zealand','Explore New Zealand’s Axis wake and surf boats. Discover the range, explore stock options and contact Action Water Sports.'],
  boats:['Explore the NZ Boat Range','Explore Axis wake and surf boats across the A-Series and T-Series.'],
  contact:['Contact Action Water Sports','Contact the New Zealand Axis team about models, available boats, demonstrations, parts and service support.'],
  stock:['Dealer Boat Stock','Browse Action Water Sports’ live multi-brand boat catalogue and contact the team about Axis availability.'],
- 'build-a-boat':['Build Your Axis','Explore Axis’s official boat builder, then confirm New Zealand engine, equipment, pricing and availability with Action Water Sports.'],
+ community:['The Axis Community','Owner resources, riding guides and stories for making the most of your Axis boat.'],
  'privacy-policy':['Privacy Information','How the Axis Boats New Zealand website handles enquiries and contact information.']
 };
 export function pageMetadata(path:string):Metadata{

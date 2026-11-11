@@ -98,6 +98,10 @@
     "source": "https://www.axiswake.com/owners",
     "links": [
       {
+        "title": "Explore all owner articles",
+        "url": "/blog"
+      },
+      {
         "title": "Ask about your NZ warranty",
         "url": "/contact?interest=service#enquire"
       },
@@ -160,9 +164,9 @@
   },
   {
     "slug": "blog",
-    "title": "Axis Lifestyle & Blog",
+    "title": "Owner Articles & Axis Lifestyle",
     "kicker": "Axis community",
-    "intro": "Stories, ownership ideas and more reasons to get out on the water.",
+    "intro": "Explore 34 owner articles covering boat setup, riding, maintenance and life on the water.",
     "hero": "https://www.axiswake.com/sites/site.axiswake.com/files/styles/gallery_thumb/public/2026-07/axis-my26-a225-family-lifestyle.jpg.webp?itok=6sNhcmPK",
     "sections": [
       {

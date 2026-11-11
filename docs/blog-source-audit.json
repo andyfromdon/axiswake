@@ -1,0 +1,231 @@
+{
+  "reviewedAt": "2026-11-12",
+  "archivePages": [
+    "https://www.axiswake.com/blog",
+    "https://www.axiswake.com/blog?page=1",
+    "https://www.axiswake.com/blog?page=2",
+    "https://www.axiswake.com/blog?page=3"
+  ],
+  "reviewed": 42,
+  "included": 34,
+  "notes": [
+    "All 42 source article URLs returned successful responses.",
+    "Local cards contain original summaries and link to full articles on the official international Axis website.",
+    "Article 20 has a wakesurfing source heading but wakeboarding content; its local title describes the actual content.",
+    "The two repeated driving/trailering articles are represented once through the complete Boat Like a Pro series."
+  ],
+  "excluded": [
+    {
+      "source": "https://www.axiswake.com/blog/when-it-time-upgrade-dedicated-wake-boat",
+      "title": "When Is It Time To Upgrade To A Dedicated Wake Boat?",
+      "reason": "Boat upgrade sales advice"
+    },
+    {
+      "source": "https://www.axiswake.com/blog/build-your-axis-boat-online-3d-configurator",
+      "title": "Build Your Axis Boat Online With The 3d Configurator",
+      "reason": "Boat builder"
+    },
+    {
+      "source": "https://www.axiswake.com/blog/brostock-2025-axis-wake-official-towboat",
+      "title": "Brostock 2025: Axis Wake Is The Official Towboat",
+      "reason": "Event sponsorship announcement"
+    },
+    {
+      "source": "https://www.axiswake.com/blog/how-trailer-your-axis-wake-boat-step-step-guide",
+      "title": "How To Trailer Your Axis Wake Boat: A Step-by-step Guide",
+      "reason": "Duplicate of Boat Like a Pro part one"
+    },
+    {
+      "source": "https://www.axiswake.com/blog/boat-pro-how-drive-your-axis-safely-and-confidently",
+      "title": "Boat Like A Pro: How To Drive Your Axis Safely And Confidently",
+      "reason": "Duplicate of Boat Like a Pro part three"
+    },
+    {
+      "source": "https://www.axiswake.com/blog/axis-build-boat-tool-new-features-make-customising-easier",
+      "title": "Axis Build-a-boat Tool: New Features That Make Customising Easier",
+      "reason": "Boat builder"
+    },
+    {
+      "source": "https://www.axiswake.com/blog/axis-wake-boats-vs-competition-honest-comparison",
+      "title": "Axis Wake Boats Vs. The Competition: An Honest Comparison",
+      "reason": "Sales comparison"
+    },
+    {
+      "source": "https://www.axiswake.com/blog/how-test-drive-axis-wake-boat-what-look-water",
+      "title": "How To Test Drive An Axis Wake Boat: What To Look For On The Water",
+      "reason": "Purchase/test-drive advice"
+    }
+  ],
+  "articles": [
+    {
+      "title": "Wake Boat Features Explained: A Beginner's Guide To What Matters",
+      "source": "https://www.axiswake.com/blog/wake-boat-features-explained-beginners-guide-what-matters",
+      "category": "Boat setup"
+    },
+    {
+      "title": "What Wake Boat Features Does A Beginner Family Really Need?",
+      "source": "https://www.axiswake.com/blog/what-wake-boat-features-does-beginner-family-really-need",
+      "category": "Getting started"
+    },
+    {
+      "title": "How To Store And Winterize Your Axis Wake Boat Properly",
+      "source": "https://www.axiswake.com/blog/how-store-and-winterize-your-axis-wake-boat-properly",
+      "category": "Boat care"
+    },
+    {
+      "title": "On The Road With The Rowley Family And The Axis A200",
+      "source": "https://www.axiswake.com/blog/road-rowley-family-and-axis-a200",
+      "category": "Life on the water"
+    },
+    {
+      "title": "How To Dial In Your Axis Settings For The Perfect Wake Every Time",
+      "source": "https://www.axiswake.com/blog/how-dial-your-axis-settings-perfect-wake-every-time",
+      "category": "Boat setup"
+    },
+    {
+      "title": "First-time Axis Owner? Your Complete Before-you-launch Checklist",
+      "source": "https://www.axiswake.com/blog/first-time-axis-owner-your-complete-you-launch-checklist",
+      "category": "Getting started"
+    },
+    {
+      "title": "How To Wakesurf And Wake Foil Behind Your Axis: A Complete Guide",
+      "source": "https://www.axiswake.com/blog/how-wakesurf-and-wake-foil-behind-your-axis-complete-guide",
+      "category": "Riding"
+    },
+    {
+      "title": "Boating In Saltwater With Your Axis: What You Need To Know",
+      "source": "https://www.axiswake.com/blog/boating-saltwater-your-axis-what-you-need-know",
+      "category": "Boat care"
+    },
+    {
+      "title": "How To Set Up Your Axis For Wakesurfing With Johnny Stieg",
+      "source": "https://www.axiswake.com/blog/how-set-your-axis-wakesurfing-johnny-stieg",
+      "category": "Boat setup"
+    },
+    {
+      "title": "The Axis Guide To Tailgating By Boat",
+      "source": "https://www.axiswake.com/blog/axis-guide-tailgating-boat",
+      "category": "Life on the water"
+    },
+    {
+      "title": "What Is Power Wedge® III And Why Does It Matter?",
+      "source": "https://www.axiswake.com/blog/what-power-wedger-iii-and-why-does-it-matter",
+      "category": "Boat setup"
+    },
+    {
+      "title": "How To Prepare For An Overnight Trip On Your Axis Wake Boat",
+      "source": "https://www.axiswake.com/blog/how-prepare-overnight-trip-your-axis-wake-boat",
+      "category": "Life on the water"
+    },
+    {
+      "title": "Walkthrough The New Axis Dashboard",
+      "source": "https://www.axiswake.com/blog/walkthrough-new-axis-dashboard",
+      "category": "Boat setup"
+    },
+    {
+      "title": "How To Set The Perfect Wave On An Axis Boat (Without Prior Experience)",
+      "source": "https://www.axiswake.com/blog/how-set-perfect-wave-axis-boat-without-prior-experience",
+      "category": "Boat setup"
+    },
+    {
+      "title": "Beginner Wakeboarding Tips: Getting Started Behind the Boat",
+      "source": "https://www.axiswake.com/blog/beginner-wakesurfing-tips-how-get-started-behind-boat",
+      "category": "Riding"
+    },
+    {
+      "title": "Wake Boat Etiquette: How To Wake Responsibly With Your Axis",
+      "source": "https://www.axiswake.com/blog/wake-boat-etiquette-how-wake-responsibly-your-axis",
+      "category": "Getting started"
+    },
+    {
+      "title": "How To Prepare For A Full Weekend On The Lake With Your Axis",
+      "source": "https://www.axiswake.com/blog/how-prepare-full-weekend-lake-your-axis",
+      "category": "Life on the water"
+    },
+    {
+      "title": "Boat Like A Pro Part 4: Docking Your Axis Wake Boat",
+      "source": "https://www.axiswake.com/blog/boat-pro-part-4-docking-your-axis-wake-boat",
+      "category": "Getting started"
+    },
+    {
+      "title": "Big Wake Energy: Making Waves With Bec Gange And The Axis A24",
+      "source": "https://www.axiswake.com/blog/big-wake-energy-making-waves-bec-gange-and-axis-a24",
+      "category": "Life on the water"
+    },
+    {
+      "title": "Boat Like A Pro Part 3: How To Drive Your Boat Safely",
+      "source": "https://www.axiswake.com/blog/boat-pro-part-3-how-drive-your-boat-safely",
+      "category": "Getting started"
+    },
+    {
+      "title": "How To Ride: Wakeboard Wrap Heel Side Front Side 360",
+      "source": "https://www.axiswake.com/blog/how-ride-wakeboard-wrap-heel-side-front-side-360",
+      "category": "Riding"
+    },
+    {
+      "title": "Goin' All Out: A Day On The Water With The Neal Family",
+      "source": "https://www.axiswake.com/blog/goin-all-out-day-water-neal-family",
+      "category": "Life on the water"
+    },
+    {
+      "title": "A Wake-themed Wedding: The Shillers Go All Out",
+      "source": "https://www.axiswake.com/blog/wake-themed-wedding-shillers-go-all-out",
+      "category": "Life on the water"
+    },
+    {
+      "title": "Boat Like A Pro Part 1: How To Trailer Your Axis Wake Boat",
+      "source": "https://www.axiswake.com/blog/boat-pro-part-1-how-trailer-your-axis-wake-boat",
+      "category": "Getting started"
+    },
+    {
+      "title": "Boat Like A Pro Part 2: How To Launch Your Axis At The Ramp",
+      "source": "https://www.axiswake.com/blog/boat-pro-part-2-how-launch-your-axis-ramp",
+      "category": "Getting started"
+    },
+    {
+      "title": "Boat Like A Pro Part 5: How To Get Your Boat Home From The Lake",
+      "source": "https://www.axiswake.com/blog/boat-pro-part-5-how-get-your-boat-home-lake",
+      "category": "Getting started"
+    },
+    {
+      "title": "Beginner Wakesurfing Tips: How To Get Started Behind The Boat",
+      "source": "https://www.axiswake.com/blog/beginner-wakesurfing-tips-how-get-started-behind-boat-0",
+      "category": "Riding"
+    },
+    {
+      "title": "Top 5 Wake Boat Problems New Owners Face - How Axis Solves Them",
+      "source": "https://www.axiswake.com/blog/top-5-wake-boat-problems-new-owners-face-how-axis-solves-them",
+      "category": "Getting started"
+    },
+    {
+      "title": "Lake Powell Adventures With The Robison Family And Their Axis",
+      "source": "https://www.axiswake.com/blog/lake-powell-adventures-robison-family-and-their-axis",
+      "category": "Life on the water"
+    },
+    {
+      "title": "Bec Gange Unveils Her Custom 2023 Axis A24",
+      "source": "https://www.axiswake.com/blog/bec-gange-unveils-her-custom-2023-axis-a24",
+      "category": "Life on the water"
+    },
+    {
+      "title": "Going All Out With The Neal Family And Their Axis T250",
+      "source": "https://www.axiswake.com/blog/going-all-out-neal-family-and-their-axis-t250",
+      "category": "Life on the water"
+    },
+    {
+      "title": "How To Clean Your Axis Boat",
+      "source": "https://www.axiswake.com/blog/how-clean-your-axis-boat",
+      "category": "Boat care"
+    },
+    {
+      "title": "How To Boat With Your Dog: Tips For A Safe Day On The Water",
+      "source": "https://www.axiswake.com/blog/how-boat-your-dog-tips-safe-day-water",
+      "category": "Life on the water"
+    },
+    {
+      "title": "Along Route 66 To Lake Powell: An Axis Adventure",
+      "source": "https://www.axiswake.com/blog/along-route-66-lake-powell-axis-adventure",
+      "category": "Life on the water"
+    }
+  ]
+}

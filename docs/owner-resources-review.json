@@ -1,0 +1,30 @@
+{
+  "date": "2026-11-12",
+  "pagesChecked": 22,
+  "internalLinksAndAnchors": 802,
+  "brokenInternalLinks": [],
+  "externalDestinationsAndImages": 83,
+  "externalFailures": [],
+  "responsiveChecks": 75,
+  "responsiveFailures": [],
+  "interactionChecks": [
+    "Topic filters",
+    "Search within a topic",
+    "No-result recovery",
+    "Global search opens the matching article card, including from an already filtered blog page",
+    "Owner articles accessible from home, community, owners, menu and footer"
+  ],
+  "releaseChecks": [
+    "Production build and TypeScript",
+    "Standalone health and all 22 routes",
+    "Legacy builder redirect to /boats",
+    "Community sitemap entry",
+    "Article source links and card anchors",
+    "Enquiry and analytics suites"
+  ],
+  "knownLimitations": [
+    "Full articles are hosted on the official international Axis website and open in a new tab.",
+    "The existing enquiry form prepares an email draft; direct server delivery is not configured.",
+    "Development site remains noindex."
+  ]
+}
