@@ -34,3 +34,15 @@ The requested launch scope is the development site at https://axis-demo.don.digi
 - Next.js still emits a non-blocking file-tracing warning for the enquiry route; the standalone release passes its checks.
 
 Before a later production launch, confirm the production domain, NZ range and dealer content; configure and verify direct enquiry delivery and matching privacy copy; decide stock integration and analytics configuration. Pricing can remain enquiry-based. The development site remains noindex, its form prepares email drafts, and no external analytics tag is configured.
+
+## Final responsive review and stock — 12 November 2026
+
+- Checked all 23 content pages at 19 viewport widths from 320px to 2560px, including both sides of layout breakpoints: 437 layout checks. No page overflow or clipped headings remained in the checked build.
+- Fixed long editorial headings and narrow columns, plus landscape gallery sizing so the close button and photo controls remain visible.
+- Checked menu and search at six portrait/landscape sizes; checked gallery controls, required enquiry fields and stock enquiry prefill. These are browser viewport checks, not a claim of testing every physical device/browser.
+- Changed the enquiry button to **Submit**. It still prepares an email draft and explains that behaviour above the fields.
+- Removed boat-builder shortcuts from the header, menu, series explorer and model pages.
+- Embedded the dealer's live AutoPlay catalogue on `/stock`, explicitly labelled **Dealer boat stock**. The feed is restricted to recreational boats (type 71), includes other brands, supports filters, and links stock enquiries back to the onsite form. Boat details open the dealer site in a new tab.
+- The current dealer feed has no Axis make filter. The user selected the clearly labelled multi-brand boat catalogue. Source: https://apws.co.nz/search-html/?type=71 (checked 12 November 2026).
+- Updated privacy copy for the embedded provider content, cookies and analytics. No separate first-party analytics tag has been configured.
+- Axis already has its own SiteHost container, separate from Malibu and APWS; a new container is not required for production. The production domain is `axisboats.co.nz`; DNS instructions have been sent to Warren. Domain binding, HTTPS, canonical origin and indexing still need the production launch configuration.

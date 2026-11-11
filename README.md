@@ -8,7 +8,7 @@ Independent Next.js / TypeScript build using the current Malibu layout and Axis 
 - Live demo: https://axis-demo.don.digital/; validated GitHub Actions deployments from main.
 - Demo is always noindex. No credentials or runtime customer records belong in Git.
 - Current enquiry form prepares an email draft for the visitor to review and send. Direct SMTP delivery requires explicit configuration, enabling both ENQUIRY_ENABLED and NEXT_PUBLIC_ENQUIRY_ENABLED, and updating the privacy copy for private 90-day recovery retention.
-- Stock opens the existing multi-brand dealer catalogue; an Axis-only live feed is not yet configured.
+- Stock embeds the live multi-brand dealer boat catalogue from AutoPlay, restricted to recreational boats. Boat enquiries return to this site; photos and details open the dealer listing. An Axis-only filter is not available in the current feed.
 
 ## Local development
 

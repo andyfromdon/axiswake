@@ -8,7 +8,7 @@ const pages:Record<string,[string,string]>={
  '':['Axis Boats New Zealand','Explore New Zealand’s Axis wake and surf boats. Discover the range, explore stock options and contact Action Water Sports.'],
  boats:['Explore the NZ Boat Range','Explore Axis wake and surf boats across the A-Series and T-Series.'],
  contact:['Contact Action Water Sports','Contact the New Zealand Axis team about models, available boats, demonstrations, parts and service support.'],
- stock:['Available Axis Stock','Contact Action Water Sports about Axis availability or browse the dealer stock website.'],
+ stock:['Dealer Boat Stock','Browse Action Water Sports’ live multi-brand boat catalogue and contact the team about Axis availability.'],
  'build-a-boat':['Build Your Axis','Explore Axis’s official boat builder, then confirm New Zealand engine, equipment, pricing and availability with Action Water Sports.'],
  'privacy-policy':['Privacy Information','How the Axis Boats New Zealand website handles enquiries and contact information.']
 };

@@ -34,3 +34,10 @@ html:has(.model-nav){scroll-padding-top:168px}.model-nav{height:64px;padding:0 5
 @media(max-width:650px){.menu-series{grid-template-columns:1fr}.menu-series img{height:90px}}.model-nav a[aria-current=location]{border-color:var(--blue)}
 /* Keep the centred logo clear of the tablet header actions. The builder remains in the menu. */
 @media(max-width:900px){.header-actions .button{display:none}}
+/* Keep long editorial titles within narrow columns and phone viewports. */
+.editorial-page .split-section{grid-template-columns:repeat(2,minmax(0,1fr))}
+.editorial-page .split-section>div{min-width:0}
+.editorial-page h1,.editorial-page h2{max-width:100%;overflow-wrap:anywhere}
+@media(max-width:650px){.editorial-page .hero-content h1{font-size:clamp(23px,7vw,39px)}.editorial-page .editorial-intro h2{font-size:clamp(23px,7vw,30px)}}
+@media(max-height:600px){.lightbox{padding:12px}.lightbox-top{margin-bottom:8px}.lightbox-controls{margin-top:8px}.lightbox img{height:calc(94svh - 144px);max-height:calc(94svh - 144px)}}
+.stock-intro{padding-bottom:45px}.stock-fallback{padding:18px 5%;margin:0;font-size:14px;background:var(--cream)}.stock-fallback .text-link{margin-top:8px}.stock-frame{display:block;width:100%;border:0;background:white}
