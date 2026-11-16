@@ -1,0 +1,171 @@
+{
+  "date": "2026-11-17",
+  "assetsReviewed": 152,
+  "sourcePages": [
+    "https://www.axiswake.com/",
+    "https://www.axiswake.com/boats/a-series/a245",
+    "https://www.axiswake.com/boats/t-series/t250",
+    "https://www.axiswake.com/why-axis/innovations",
+    "https://www.axiswake.com/why-axis/monsoon-engines",
+    "https://www.axiswake.com/why-axis/dash"
+  ],
+  "replacements": [
+    {
+      "old": "https://www.axiswake.com/sites/site.axiswake.com/files/styles/gallery_thumb/public/2026-07/axis-my26-a245-family-lifestyle.jpg.webp?itok=fxlIPmEL",
+      "url": "https://www.axiswake.com/sites/site.axiswake.com/files/styles/gallery_large/public/2026-07/axis-my26-a245-family-lifestyle.jpg.webp?itok=RB4xzZRU",
+      "reason": "Replace gallery thumbnail with the published larger version of the same photograph",
+      "before": [
+        768,
+        512
+      ],
+      "after": [
+        1380,
+        920
+      ],
+      "bytes": 167502
+    },
+    {
+      "old": "https://www.axiswake.com/sites/site.axiswake.com/files/styles/gallery_thumb/public/2026-07/axis-my26-a225-family-lifestyle.jpg.webp?itok=6sNhcmPK",
+      "url": "https://www.axiswake.com/sites/site.axiswake.com/files/styles/gallery_large/public/2026-07/axis-my26-a225-family-lifestyle.jpg.webp?itok=uCGToGiA",
+      "reason": "Replace gallery thumbnail with the published larger version of the same photograph",
+      "before": [
+        768,
+        512
+      ],
+      "after": [
+        1380,
+        920
+      ],
+      "bytes": 142970
+    },
+    {
+      "old": "https://www.axiswake.com/sites/site.axiswake.com/files/styles/gallery_thumb/public/2026-07/axis-my26-t235-wakesurf.jpg.webp?itok=yrFiwNOR",
+      "url": "https://www.axiswake.com/sites/site.axiswake.com/files/styles/gallery_large/public/2026-07/axis-my26-t235-wakesurf.jpg.webp?itok=gQ_k1fci",
+      "reason": "Replace gallery thumbnail with the published larger version of the same photograph",
+      "before": [
+        768,
+        512
+      ],
+      "after": [
+        1380,
+        920
+      ],
+      "bytes": 242202
+    },
+    {
+      "old": "https://www.axiswake.com/sites/site.axiswake.com/files/styles/gallery_thumb/public/2026-07/axis-my26-t250-wakeboard.jpg.webp?itok=6NHr1b3r",
+      "url": "https://www.axiswake.com/sites/site.axiswake.com/files/styles/gallery_large/public/2026-07/axis-my26-t250-wakeboard.jpg.webp?itok=WltUw7uF",
+      "reason": "Replace gallery thumbnail with the published larger version of the same photograph",
+      "before": [
+        768,
+        512
+      ],
+      "after": [
+        1380,
+        920
+      ],
+      "bytes": 190458
+    },
+    {
+      "old": "https://www.axiswake.com/sites/site.axiswake.com/files/styles/product_card_768w/public/2026-09/MY27_A245-Side-Render_640x400.png.webp?itok=AXuRs61D",
+      "url": "https://www.axiswake.com/sites/site.axiswake.com/files/2026-09/MY27_A245-Side-Render_900x575.png",
+      "width": 900,
+      "height": 575,
+      "bytes": 197977,
+      "reason": "Use the larger official render of the same model",
+      "before": [
+        640,
+        400
+      ],
+      "after": [
+        900,
+        575
+      ]
+    },
+    {
+      "old": "https://www.axiswake.com/sites/site.axiswake.com/files/styles/product_card_768w/public/2026-09/MY27_T250-Side-Render_640x400.png.webp?itok=TFofxCNV",
+      "url": "https://www.axiswake.com/sites/site.axiswake.com/files/2026-09/MY27_T250-Side-Render_900x575.png",
+      "width": 900,
+      "height": 575,
+      "bytes": 208556,
+      "reason": "Use the larger official render of the same model",
+      "before": [
+        640,
+        400
+      ],
+      "after": [
+        900,
+        575
+      ]
+    },
+    {
+      "url": "https://www.axiswake.com/sites/site.axiswake.com/files/styles/hero_inset_1920w/public/2026-07/axis-my26-dash-wireless-charging.jpg.webp?itok=WFa3UTRr",
+      "width": 1920,
+      "height": 1280,
+      "bytes": 138362,
+      "old": "https://www.axiswake.com/sites/site.axiswake.com/files/styles/gallery_large/public/2026-07/axis-my26-dash-garmin-wireless-charging.jpeg.webp?itok=_S0MPJpZ",
+      "before": [
+        800,
+        534
+      ],
+      "reason": "Use the higher-resolution Axis helm photograph published on the official Dash page",
+      "after": [
+        1920,
+        1280
+      ]
+    },
+    {
+      "url": "https://www.axiswake.com/sites/site.axiswake.com/files/styles/hero_full_1920w/public/2026-07/axis-my26-t250-wakesurf-V2.jpg.webp?itok=TSUvuaBo",
+      "width": 1920,
+      "height": 960,
+      "bytes": 415958,
+      "old": "https://www.axiswake.com/sites/site.axiswake.com/files/styles/gallery_large/public/2026-07/axis-my26-wakesurf.jpg.webp?itok=GXQoLMvu",
+      "before": [
+        800,
+        1200
+      ],
+      "reason": "Use a landscape banner from the corresponding official Axis feature page",
+      "scope": "why-axis/innovations hero only",
+      "after": [
+        1920,
+        960
+      ]
+    },
+    {
+      "url": "https://www.axiswake.com/sites/site.axiswake.com/files/styles/hero_full_1920w/public/2026-07/axis-my26-t250-wakeboard-V2.jpg.webp?itok=HxXBmjx9",
+      "width": 1920,
+      "height": 960,
+      "bytes": 192598,
+      "old": "https://www.axiswake.com/sites/site.axiswake.com/files/styles/gallery_large/public/2026-07/axis-my26-monsoon-lt4-engine-cover.jpg.webp?itok=hYHXM8bu",
+      "before": [
+        800,
+        533
+      ],
+      "reason": "Use a landscape banner from the corresponding official Axis feature page",
+      "scope": "why-axis/monsoon-engines hero only",
+      "after": [
+        1920,
+        960
+      ]
+    }
+  ],
+  "notes": [
+    "No image has been artificially enlarged.",
+    "The original Monsoon engine close-up is only 800 x 533; keep it in cards and cap its editorial display at its natural dimensions.",
+    "The remaining model photos are mostly supplied by Axis at 1380px wide. Blog cards are supplied at 768px and are suitable for their smaller display."
+  ],
+  "mobileCrops": [
+    {
+      "slug": "innovations",
+      "url": "https://www.axiswake.com/sites/site.axiswake.com/files/styles/hero_full_768w/public/2026-07/axis-my26-t250-wakesurf_v2.jpg.webp?itok=xBhMZ7cV",
+      "width": 768,
+      "height": 1024
+    },
+    {
+      "slug": "monsoon-engines",
+      "url": "https://www.axiswake.com/sites/site.axiswake.com/files/styles/hero_full_768w/public/2026-07/axis-my26-t250-wakeboard-mobile-V2.jpg.webp?itok=RyfWAa3t",
+      "width": 768,
+      "height": 1024
+    }
+  ]
+}
