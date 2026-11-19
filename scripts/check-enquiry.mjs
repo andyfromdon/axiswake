@@ -11,13 +11,14 @@ const folder=await mkdtemp(path.join(tmpdir(),'axis-enquiry-'));
 let messages=[],reject=false;
 const smtp=net.createServer(socket=>{socket.setEncoding('utf8');socket.write('220 localhost ESMTP\r\n');let buffer='',inData=false,message='';socket.on('data',data=>{buffer+=data;while(buffer.includes('\r\n')){const i=buffer.indexOf('\r\n');const line=buffer.slice(0,i);buffer=buffer.slice(i+2);if(inData){if(line==='.'){inData=false;messages.push(message);message='';socket.write('250 Queued\r\n');}else message+=line+'\n';}else if(/^EHLO/.test(line))socket.write('250 localhost\r\n');else if(/^DATA/.test(line)){if(reject)socket.write('451 Try later\r\n');else{inData=true;socket.write('354 Continue\r\n');}}else if(/^QUIT/.test(line)){socket.end('221 Bye\r\n');}else socket.write('250 OK\r\n');}});});
 await new Promise(r=>smtp.listen(0,'127.0.0.1',r));
-const child=spawn(process.execPath,['app.js'],{cwd:'release',env:{...process.env,ENQUIRY_ENABLED:'true',ENQUIRY_TO:'axis-recipient@example.test',PORT:'3188',SITE_URL:'http://127.0.0.1:3188',ENQUIRY_ALLOWED_ORIGINS:'https://www.axisboats.co.nz',SMTP_HOST:'127.0.0.1',SMTP_PORT:String(smtp.address().port),ENQUIRY_DATA_DIR:folder},stdio:'pipe'});
 const base='http://127.0.0.1:3188';
+const child=spawn(process.execPath,['app.js'],{cwd:'release',env:{...process.env,ENQUIRY_ENABLED:'true',ENQUIRY_TO:'axis-recipient@example.test',PORT:'3188',SITE_URL:'https://old-site.example.test',ENQUIRY_ALLOWED_ORIGINS:base+',https://www.axisboats.co.nz',SMTP_HOST:'127.0.0.1',SMTP_PORT:String(smtp.address().port),ENQUIRY_DATA_DIR:folder},stdio:'pipe'});
 const lead={first:'Test',last:'Visitor',email:'visitor@example.test',phone:'',location:'Auckland',model:'A245',message:'Local automated enquiry test only.',page:'/boat/a245',website:'',consent:true};
 const send=(data,origin=base)=>fetch(base+'/api/enquiry',{method:'POST',headers:{'Origin':origin,'Content-Type':'application/json'},body:JSON.stringify(data)});
 try{
  let ready=false;for(let i=0;i<50;i++){try{if((await fetch(base+'/api/health')).ok){ready=true;break;}}catch{}await new Promise(r=>setTimeout(r,200));}assert(ready);
  assert.equal((await send(lead,'https://other.test')).status,403);
+ assert.equal((await send(lead,'https://old-site.example.test')).status,403);
  assert.equal((await send({...lead,email:'bad'})).status,400);
  assert.equal((await send({...lead,consent:false})).status,400);
  assert.equal((await send({...lead,website:'spam'})).status,400);
