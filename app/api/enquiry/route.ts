@@ -6,10 +6,10 @@ import models from '../../data/models.json';
 export const runtime='nodejs';
 const directory=process.env.ENQUIRY_DATA_DIR||'/container/application/.data/enquiries';
 const destination=process.env.ENQUIRY_TO?.trim();
-const allowedOrigins=new Set([
- process.env.SITE_URL||'https://axisboats.co.nz',
- ...(process.env.ENQUIRY_ALLOWED_ORIGINS||'').split(',').map(origin=>origin.trim()).filter(Boolean),
-]);
+const allowedOrigins=new Set(
+ (process.env.ENQUIRY_ALLOWED_ORIGINS||process.env.SITE_URL||'https://axisboats.co.nz')
+  .split(',').map(origin=>origin.trim()).filter(Boolean),
+);
 const attempts:number[]=[];
 const reply=(status:number,message:string,reference?:string)=>Response.json({message,reference},{status,headers:{'Cache-Control':'no-store'}});
 export async function POST(request:Request){
