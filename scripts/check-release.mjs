@@ -59,6 +59,14 @@ assert.equal(structuredData(home)['@graph'].find(item=>item['@type']==='WebSite'
 const modelPage=await(await getAs('/boat/a245')).text();
 assert.deepEqual(structuredData(modelPage).itemListElement.map(item=>item.item),['/boats','/boats/a-series','/boat/a245'].map(route=>production+route));
 const contact=await(await fetch(base+'/contact')).text();
+for(const name of ['first','last','phone']){
+ const input=contact.match(new RegExp(`<input[^>]*name="${name}"[^>]*>`))?.[0];
+ assert(input&&/\brequired(?:=""|\s|\/?>)/.test(input),name+' is required in the form');
+}
+const verificationPath='/google106291c5536fa9ac.html';
+const verification=await getAs(verificationPath);
+assert.equal(verification.status,200);
+assert.equal(await verification.text(),await readFile('public'+verificationPath,'utf8'));
 const privacy=await(await fetch(base+'/privacy-policy')).text();
 const direct=process.env.NEXT_PUBLIC_ENQUIRY_ENABLED==='true';
 assert.equal(contact.includes('Complete your details to prepare an email'),!direct);
