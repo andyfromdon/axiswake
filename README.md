@@ -6,8 +6,8 @@ Independent Next.js / TypeScript build using the current Malibu layout and Axis 
 - Models: A245, A225, A200, T250, T235 and T220; international specifications, NZ availability to be confirmed.
 - Hosting target: separate Node.js 24 SiteHost container; GitHub repository https://github.com/andyfromdon/axiswake.
 - Live demo: https://axis-demo.don.digital/; validated GitHub Actions deployments from main.
-- Demo is always noindex. No credentials or runtime customer records belong in Git.
-- Current enquiry form prepares an email draft for the visitor to review and send. Direct SMTP delivery requires explicit configuration, enabling both ENQUIRY_ENABLED and NEXT_PUBLIC_ENQUIRY_ENABLED, and updating the privacy copy for private 90-day recovery retention.
+- Public site: https://axisboats.co.nz/. The public and demo domains share the Axis container and both currently exclude search indexing.
+- Set the GitHub Actions repository secret `AXIS_ENQUIRY_TO` and run the existing deployment on `main` to enable direct form delivery. The workflow passes the address to private server configuration and selects the matching form and privacy copy. If the setting is empty, the form prepares an email draft. Switch the recipient by updating that setting and redeploying.
 - Stock embeds the live multi-brand dealer boat catalogue from AutoPlay, restricted to recreational boats. Boat enquiries return to this site; photos and details open the dealer listing. An Axis-only filter is not available in the current feed.
 
 ## Local development

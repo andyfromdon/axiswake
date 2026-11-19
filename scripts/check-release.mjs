@@ -14,7 +14,14 @@ assert.equal((blog.match(/class="article-card"/g)||[]).length,articles.length);
 for(const article of articles){assert(blog.includes('id="'+article.slug+'"'));assert(blog.includes('href="'+article.source+'"'));assert(!/build.*boat|configurator/i.test(article.slug));}
 for(const route of ['/','/community','/community/owners'])assert.match(await(await fetch(base+route)).text(),/class="article-card"/,route+' owner article pathway');
 const oldBuilder=await fetch(base+'/build-a-boat',{redirect:'manual'});assert.equal(oldBuilder.status,308);assert.equal(oldBuilder.headers.get('location'),'/boats');
-const sitemap=await(await fetch(base+'/sitemap.xml')).text();assert(sitemap.includes('/community</loc>'));assert(!sitemap.includes('/build-a-boat'));
+const sitemap=await(await fetch(base+'/sitemap.xml')).text();assert(sitemap.includes('/community</loc>'));assert(sitemap.includes('/blog</loc>'));assert(!sitemap.includes('/build-a-boat'));
+const contact=await(await fetch(base+'/contact')).text();
+const privacy=await(await fetch(base+'/privacy-policy')).text();
+const direct=process.env.NEXT_PUBLIC_ENQUIRY_ENABLED==='true';
+assert.equal(contact.includes('Complete your details to prepare an email'),!direct);
+assert.equal(privacy.includes('stored submissions older than 90 days'),direct);
+assert.match(blog,/class="axis-direction"[^>]*aria-hidden="true"/);
+if(process.env.SITE_URL)assert(contact.includes(`rel="canonical" href="${process.env.SITE_URL}/contact"`));
 const stock=await(await fetch(base+'/stock')).text();assert.match(stock,/<iframe[^>]+src="\/stock-feed"/);assert.match(stock,/Dealer boat stock/);assert.match(stock,/>Submit<\/button>/);assert(!stock.includes('href="/build-a-boat"'));
 const feed=await fetch(base+'/stock-feed');assert.equal(feed.status,200);assert.match(feed.headers.get('x-robots-tag'),/noindex/);const feedBody=await feed.text();assert.match(feedBody,/config.ID="806"/);assert.match(feedBody,/sort=6&type=71/);assert.match(feedBody,/axis-stock-height/);assert(!feedBody.includes('make=573'));
 assert.equal(models.length,6);for(const m of models){assert.deepEqual(m.specs,audit.models.find(x=>x.slug===m.slug).specs);assert(m.gallery.length>=8);assert(m.source.startsWith('https://www.axiswake.com/'));}

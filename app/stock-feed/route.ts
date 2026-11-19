@@ -21,7 +21,7 @@ function enhanceStock(){
  const ref=link.id;
  const actions=document.createElement('div');actions.className='axis-stock-actions';
  const enquire=document.createElement('a');const params=new URLSearchParams({stock:title,reference:ref,listing:id});enquire.href='/contact?'+params.toString()+'#enquire';enquire.target='_top';enquire.textContent='Enquire about this boat';enquire.setAttribute('aria-label','Enquire about '+title+' — stock '+ref);
- const detail=document.createElement('a');detail.href=url.href;detail.target='_blank';detail.rel='noopener noreferrer';detail.textContent='Photos & details at dealer ↗';detail.setAttribute('aria-label','Photos and details for '+title+' — opens dealer site in a new tab');
+ const detail=document.createElement('a');detail.href=url.href;detail.target='_blank';detail.rel='noopener noreferrer';detail.textContent='Photos & details at dealer';detail.setAttribute('aria-label','Photos and details for '+title+' — opens dealer site in a new tab');
  actions.append(enquire,detail);card.append(actions);
  card.querySelectorAll('a[href*="detail-html/"]').forEach(a=>{a.target='_blank';a.rel='noopener noreferrer';a.setAttribute('title','View boat on dealer website (new tab)')});
  });
