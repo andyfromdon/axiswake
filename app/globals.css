@@ -50,3 +50,8 @@ html:has(.model-nav){scroll-padding-top:168px}.model-nav{height:64px;padding:0 5
 /* Preserve detail in source-limited engine photography instead of enlarging it. */
 .editorial-page .split-section>img.editorial-contained-image{width:100%;max-width:800px;height:auto;min-height:0;object-fit:contain;align-self:center;justify-self:center}
 .hero-media>picture,.hero-media>picture>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+
+.axis-direction{display:inline-block;width:1.15em;height:auto;vertical-align:-.13em;flex-shrink:0}
+.axis-direction[data-direction=previous]{transform:rotate(180deg)}
+.round-arrow{display:inline-grid;place-items:center;padding:0}
+.round-arrow .axis-direction{width:22px}

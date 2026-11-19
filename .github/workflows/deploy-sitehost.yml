@@ -22,10 +22,14 @@ jobs:
       - run: npm ci
       - run: npm run build
         env:
-          SITE_URL: https://axis-demo.don.digital
+          SITE_URL: https://axisboats.co.nz
+          NEXT_PUBLIC_ENQUIRY_ENABLED: ${{ github.ref == 'refs/heads/main' && secrets.AXIS_ENQUIRY_TO != '' && 'true' || 'false' }}
       - run: npm run typecheck
       - run: npm run prepare:release
       - run: npm run test:release
+        env:
+          SITE_URL: https://axisboats.co.nz
+          NEXT_PUBLIC_ENQUIRY_ENABLED: ${{ github.ref == 'refs/heads/main' && secrets.AXIS_ENQUIRY_TO != '' && 'true' || 'false' }}
       - run: npm run test:enquiry
       - run: npm run test:analytics
       - run: tar -C release -czf axis-release.tgz .
@@ -70,11 +74,21 @@ jobs:
         run: |
           scp -i "$HOME/.ssh/sitehost_key" -o IdentitiesOnly=yes -o StrictHostKeyChecking=yes \
             axis-release.tgz "$SITEHOST_USER@$SITEHOST_HOST:/container/application/.axis-release.tgz"
-      - name: Install and restart demo
+      - name: Install and restart Axis
+        env:
+          AXIS_ENQUIRY_TO: ${{ secrets.AXIS_ENQUIRY_TO }}
         run: |
+          set -euo pipefail
+          if [[ -n "$AXIS_ENQUIRY_TO" && ! "$AXIS_ENQUIRY_TO" =~ ^[[:alnum:]._%+-]+@[[:alnum:].-]+\.[[:alpha:]]{2,}$ ]]; then
+            echo 'AXIS_ENQUIRY_TO must be a single email address.'
+            exit 1
+          fi
+          enquiry_enabled=false
+          if [[ -n "$AXIS_ENQUIRY_TO" ]]; then enquiry_enabled=true; fi
+          printf 'ENQUIRY_ENABLED=%s\nENQUIRY_TO=%s\nSITE_URL=https://axisboats.co.nz\nENQUIRY_ALLOWED_ORIGINS=https://www.axisboats.co.nz,https://axis-demo.don.digital\n' "$enquiry_enabled" "$AXIS_ENQUIRY_TO" |
           ssh -i "$HOME/.ssh/sitehost_key" -o IdentitiesOnly=yes -o StrictHostKeyChecking=yes \
             "$SITEHOST_USER@$SITEHOST_HOST" \
-            'cd /container/application && tar -xzf .axis-release.tgz && rm -f .axis-release.tgz && supervisorctl -c /container/config/supervisord.conf restart nodejs'
+            'cd /container/application && umask 077 && cat > .axis-runtime.env.new && tar -xzf .axis-release.tgz && mv -f .axis-runtime.env.new .axis-runtime.env && rm -f .axis-release.tgz && supervisorctl -c /container/config/supervisord.conf restart nodejs'
       - name: Verify SiteHost mail connection
         run: |
           ssh -i "$HOME/.ssh/sitehost_key" -o IdentitiesOnly=yes -o StrictHostKeyChecking=yes \
@@ -84,8 +98,12 @@ jobs:
         env:
           EXPECTED_REVISION: ${{ github.sha }}
         run: |
-          curl --fail --silent --show-error --retry 10 --retry-all-errors --retry-delay 2 \
-            https://axis-demo.don.digital/api/health > health.json
-          jq -e --arg revision "$EXPECTED_REVISION" \
-            '.status == "ok" and .application == "axis-nz" and .revision == $revision' health.json
+          set -euo pipefail
+          for origin in https://axisboats.co.nz https://axis-demo.don.digital; do
+            curl --fail --silent --show-error --retry 10 --retry-all-errors --retry-delay 2 \
+              "$origin/api/health" > health.json
+            jq -e --arg revision "$EXPECTED_REVISION" \
+              '.status == "ok" and .application == "axis-nz" and .revision == $revision' health.json
+          done
+          curl --fail --silent --show-error https://axisboats.co.nz/contact | grep -o 'rel="canonical" href="https://axisboats.co.nz/contact"'
           curl --fail --silent --show-error --head https://axis-demo.don.digital/ | grep -i 'x-robots-tag:.*noindex'

@@ -5,13 +5,16 @@ import nodemailer from 'nodemailer';
 import models from '../../data/models.json';
 export const runtime='nodejs';
 const directory=process.env.ENQUIRY_DATA_DIR||'/container/application/.data/enquiries';
-const destination=process.env.ENQUIRY_TO||'info@actionwatersports.co.nz';
-const origin=process.env.SITE_URL||'https://axis-demo.don.digital';
+const destination=process.env.ENQUIRY_TO?.trim();
+const allowedOrigins=new Set([
+ process.env.SITE_URL||'https://axisboats.co.nz',
+ ...(process.env.ENQUIRY_ALLOWED_ORIGINS||'').split(',').map(origin=>origin.trim()).filter(Boolean),
+]);
 const attempts:number[]=[];
 const reply=(status:number,message:string,reference?:string)=>Response.json({message,reference},{status,headers:{'Cache-Control':'no-store'}});
 export async function POST(request:Request){
- if(process.env.ENQUIRY_ENABLED!=='true')return reply(503,'Online delivery is not enabled. Please email info@actionwatersports.co.nz or call 03 943 5391.');
- if(request.headers.get('origin')!==origin)return reply(403,'Please send your enquiry using the form on this website.');
+ if(process.env.ENQUIRY_ENABLED!=='true'||!destination)return reply(503,'Online delivery is not enabled. Please email info@actionwatersports.co.nz or call 03 943 5391.');
+ if(!allowedOrigins.has(request.headers.get('origin')||''))return reply(403,'Please send your enquiry using the form on this website.');
  if(!request.headers.get('content-type')?.includes('application/json'))return reply(415,'Please use the enquiry form.');
  const now=Date.now();while(attempts.length&&attempts[0]<now-60000)attempts.shift();
  if(attempts.length>=30)return reply(429,'Please wait a minute before trying again.');attempts.push(now);
@@ -31,9 +34,24 @@ export async function POST(request:Request){
   try{await writeFile(file+'.lock','',{flag:'wx',mode:0o600});locked=true;}catch{return reply(409,'This enquiry is being processed. Please wait a moment before trying again.');}
   let record;
   try{record=JSON.parse(await readFile(file,'utf8'));}catch{}
+  const entries=await readdir(/* turbopackIgnore: true */ directory);let recent=0,sameEmail=0;
+  for(const name of entries.filter(n=>n.endsWith('.json'))){
+   const savedPath=path.join(/* turbopackIgnore: true */ directory,name);
+   try{
+    const saved=JSON.parse(await readFile(/* turbopackIgnore: true */ savedPath,'utf8'));
+    const age=now-Date.parse(saved.createdAt);
+    if(age>90*86400000){
+     await unlink(savedPath);
+     if(savedPath===file)record=undefined;
+    }else if(age<3600000){
+     recent++;
+     if(saved.email.toLowerCase()===fields.email.toLowerCase())sameEmail++;
+    }
+   }catch(error){
+    if((error as NodeJS.ErrnoException).code!=='ENOENT')throw error;
+   }
+  }
   if(record?.status==='sent')return reply(200,'Thanks — your enquiry has been sent to Action Water Sports.',record.reference);
-  const entries=await readdir(directory);let recent=0,sameEmail=0;
-  for(const name of entries.filter(n=>n.endsWith('.json'))){const saved=JSON.parse(await readFile(path.join(directory,name),'utf8'));if(now-Date.parse(saved.createdAt)>90*86400000){await unlink(path.join(directory,name));continue;}if(now-Date.parse(saved.createdAt)<3600000){recent++;if(saved.email.toLowerCase()===fields.email.toLowerCase())sameEmail++;}}
   if(!record&&(recent>=60||sameEmail>=5))return reply(429,'We have received several enquiries recently. Please call 03 943 5391 or try again later.');
   const reference=record?.reference||randomUUID();
   record={...fields,reference,createdAt:record?.createdAt||new Date().toISOString(),status:'pending',consent:true,mailAcceptedAt:''};

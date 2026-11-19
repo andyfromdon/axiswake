@@ -6,5 +6,5 @@ await cp('.next/static', 'release/.next/static', { recursive: true });
 await cp('node_modules/nodemailer','release/node_modules/nodemailer',{recursive:true});
 await cp('scripts/check-mail.cjs','release/check-mail.cjs');
 const revision = process.env.GITHUB_SHA ?? 'development';
-await writeFile('release/app.js', `process.env.NODE_ENV = 'production';\nprocess.env.HOSTNAME = '0.0.0.0';\nprocess.env.PORT = process.env.PORT || '3000';\nprocess.env.APP_REVISION = ${JSON.stringify(revision)};\nrequire('./server.js');\n`);
+await writeFile('release/app.js', `try {\n  process.loadEnvFile(require('node:path').join(__dirname, '.axis-runtime.env'));\n} catch (error) {\n  if (error.code !== 'ENOENT') throw error;\n}\nprocess.env.NODE_ENV = 'production';\nprocess.env.HOSTNAME = '0.0.0.0';\nprocess.env.PORT = process.env.PORT || '3000';\nprocess.env.APP_REVISION = ${JSON.stringify(revision)};\nrequire('./server.js');\n`);
 console.log('Standalone release prepared.');
