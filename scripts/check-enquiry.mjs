@@ -13,12 +13,17 @@ const smtp=net.createServer(socket=>{socket.setEncoding('utf8');socket.write('22
 await new Promise(r=>smtp.listen(0,'127.0.0.1',r));
 const base='http://127.0.0.1:3188';
 const child=spawn(process.execPath,['app.js'],{cwd:'release',env:{...process.env,ENQUIRY_ENABLED:'true',ENQUIRY_TO:'axis-recipient@example.test',PORT:'3188',SITE_URL:'https://old-site.example.test',ENQUIRY_ALLOWED_ORIGINS:base+',https://www.axisboats.co.nz',SMTP_HOST:'127.0.0.1',SMTP_PORT:String(smtp.address().port),ENQUIRY_DATA_DIR:folder},stdio:'pipe'});
-const lead={first:'Test',last:'Visitor',email:'visitor@example.test',phone:'',location:'Auckland',model:'A245',message:'Local automated enquiry test only.',page:'/boat/a245',website:'',consent:true};
+const lead={first:'Test',last:'Visitor',email:'visitor@example.test',phone:'+64 21 555 0101',location:'Auckland',model:'A245',message:'Local automated enquiry test only.',page:'/boat/a245',website:'',consent:true};
 const send=(data,origin=base)=>fetch(base+'/api/enquiry',{method:'POST',headers:{'Origin':origin,'Content-Type':'application/json'},body:JSON.stringify(data)});
 try{
  let ready=false;for(let i=0;i<50;i++){try{if((await fetch(base+'/api/health')).ok){ready=true;break;}}catch{}await new Promise(r=>setTimeout(r,200));}assert(ready);
  assert.equal((await send(lead,'https://other.test')).status,403);
  assert.equal((await send(lead,'https://old-site.example.test')).status,403);
+ for(const field of ['first','last','phone']){
+  const response=await send({...lead,[field]:'  '});
+  assert.equal(response.status,400,field+' is required');
+  assert.match((await response.json()).message,/name, email, phone number/);
+ }
  assert.equal((await send({...lead,email:'bad'})).status,400);
  assert.equal((await send({...lead,consent:false})).status,400);
  assert.equal((await send({...lead,website:'spam'})).status,400);
@@ -27,6 +32,7 @@ try{
  assert.equal(messages.length,0);
  assert.equal((await send(lead)).status,200);assert.equal(messages.length,1);
  assert.match(messages[0],/To: axis-recipient@example.test/);assert.match(messages[0],/Reply-To: Test Visitor <visitor@example.test>/);
+ assert.match(messages[0],/Phone: \+64 21 555 0101/);
  assert.equal((await send(lead)).status,200);assert.equal(messages.length,1,'Retry duplicated email');
  reject=true;const failed={...lead,message:'Simulate failed email delivery.'};assert.equal((await send(failed)).status,503);
  const records=await Promise.all((await readdir(folder)).filter(n=>n.endsWith('.json')).map(async n=>JSON.parse(await readFile(path.join(folder,n),'utf8'))));assert(records.some(r=>r.status==='mail_failed'));
