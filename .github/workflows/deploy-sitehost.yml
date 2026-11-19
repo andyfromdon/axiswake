@@ -13,6 +13,8 @@ jobs:
   build:
     runs-on: ubuntu-latest
     timeout-minutes: 15
+    env:
+      NEXT_PUBLIC_AXIS_INDEXING_ENABLED: ${{ github.ref == 'refs/heads/main' && vars.AXIS_INDEXING_ENABLED == 'true' && 'true' || 'false' }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -98,6 +100,7 @@ jobs:
         env:
           EXPECTED_REVISION: ${{ github.sha }}
           EXPECTED_ENQUIRY_STATUS: ${{ secrets.AXIS_ENQUIRY_TO != '' && '400' || '503' }}
+          EXPECTED_PUBLIC_INDEXING: ${{ vars.AXIS_INDEXING_ENABLED == 'true' && 'true' || 'false' }}
         run: |
           set -euo pipefail
           verify_revision() {
@@ -119,7 +122,21 @@ jobs:
           status="$(curl --silent --show-error --max-time 20 --output public-health.json \
             --write-out '%{http_code}' https://axisboats.co.nz/api/health)"
           case "$status" in
-            200) verify_revision public-health.json ;;
+            200)
+              verify_revision public-health.json
+              curl --fail --silent --show-error --head https://axisboats.co.nz/ > public-headers.txt
+              curl --fail --silent --show-error https://axisboats.co.nz/robots.txt > public-robots.txt
+              if [[ "$EXPECTED_PUBLIC_INDEXING" == 'true' ]]; then
+                if grep -qi 'x-robots-tag:.*noindex' public-headers.txt; then
+                  echo 'The public homepage is still marked noindex.'
+                  exit 1
+                fi
+                grep -q '^Sitemap: https://axisboats.co.nz/sitemap.xml' public-robots.txt
+              else
+                grep -qi 'x-robots-tag:.*noindex' public-headers.txt
+                grep -qx 'Disallow: /' public-robots.txt
+              fi
+              ;;
             403) echo '::warning::axisboats.co.nz returned 403 to the Actions runner. Verify the public domain from a browser.' ;;
             *) echo "Public health check returned HTTP $status."; exit 1 ;;
           esac
