@@ -25,6 +25,10 @@ export async function POST(request:Request){
  const fields:Record<string,string>={};
  for(const [key,max] of Object.entries(limits)){if(typeof data[key]!=='string'||(data[key] as string).length>max)return reply(400,'Please check your details and keep your message under 4,000 characters.');fields[key]=(data[key] as string).trim();if(key!=='message'&&/[\r\n\x00]/.test(fields[key]))return reply(400,'Please check your contact details.');}
  if(!fields.first||!fields.last||!fields.phone||fields.message.length<5||!/^[^\s<>@]+@[^\s<>@]+\.[^\s<>@]+$/.test(fields.email)||data.consent!==true||!['Help me choose','Arrange a demo',...models.map(m=>m.name)].includes(fields.model)||!fields.page.startsWith('/'))return reply(400,'Please complete your name, email, phone number, boat interest, message and contact consent.');
+ const category=data.category===undefined?'general':data.category;
+ if(typeof category!=='string'||!['general','service','parts','sales','trade-in','finance','stock','model','demo'].includes(category))return reply(400,'Please choose a valid enquiry type.');
+ const recipient=['service','parts'].includes(category)?'service@apws.co.nz':category==='general'?destination:'sales@apws.co.nz';
+ fields.category=category;
  const fingerprint=createHash('sha256').update(JSON.stringify(fields)).digest('hex');
  const file=path.join(directory,fingerprint+'.json');
  let locked=false;
@@ -59,7 +63,7 @@ export async function POST(request:Request){
   await save();
   const transport=nodemailer.createTransport({host:process.env.SMTP_HOST||'smtp.sitehost.co.nz',port:Number(process.env.SMTP_PORT||25),secure:process.env.SMTP_SECURE==='true',auth:process.env.SMTP_USER?{user:process.env.SMTP_USER,pass:process.env.SMTP_PASSWORD}:undefined,connectionTimeout:8000,greetingTimeout:8000,socketTimeout:12000});
   try{
-   const result=await transport.sendMail({from:{name:'Axis NZ website',address:process.env.ENQUIRY_FROM||'hello@don.digital'},to:destination,replyTo:{name:fields.first+' '+fields.last,address:fields.email},subject:'Axis NZ enquiry — '+fields.model,text:`New Axis website enquiry\nReference: ${reference}\n\nName: ${fields.first} ${fields.last}\nEmail: ${fields.email}\nPhone: ${fields.phone}\nTown / city: ${fields.location||'Not provided'}\nInterested in: ${fields.model}\nPage: ${fields.page}\n\n${fields.message}\n\nThe visitor agreed to be contacted about this enquiry.`,disableFileAccess:true,disableUrlAccess:true});
+   const result=await transport.sendMail({from:{name:'Axis NZ website',address:process.env.ENQUIRY_FROM||'hello@don.digital'},to:recipient,replyTo:{name:fields.first+' '+fields.last,address:fields.email},subject:'Axis NZ enquiry — '+fields.model,text:`New Axis website enquiry\nReference: ${reference}\n\nName: ${fields.first} ${fields.last}\nEmail: ${fields.email}\nPhone: ${fields.phone}\nTown / city: ${fields.location||'Not provided'}\nInterested in: ${fields.model}\nPage: ${fields.page}\n\n${fields.message}\n\nThe visitor agreed to be contacted about this enquiry.`,disableFileAccess:true,disableUrlAccess:true});
    if(!result.accepted.length)throw Error('not accepted');
    record.status='sent';record.mailAcceptedAt=new Date().toISOString();await save();
    return reply(200,'Thanks — your enquiry has been sent to Action Water Sports.',reference);
