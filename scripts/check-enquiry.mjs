@@ -34,9 +34,21 @@ try{
  assert.match(messages[0],/To: axis-recipient@example.test/);assert.match(messages[0],/Reply-To: Test Visitor <visitor@example.test>/);
  assert.match(messages[0],/Phone: \+64 21 555 0101/);
  assert.equal((await send(lead)).status,200);assert.equal(messages.length,1,'Retry duplicated email');
+ assert.equal((await send({...lead,category:'general'})).status,200);assert.equal(messages.length,1,'Explicit General duplicated legacy enquiry');
  reject=true;const failed={...lead,message:'Simulate failed email delivery.'};assert.equal((await send(failed)).status,503);
  const records=await Promise.all((await readdir(folder)).filter(n=>n.endsWith('.json')).map(async n=>JSON.parse(await readFile(path.join(folder,n),'utf8'))));assert(records.some(r=>r.status==='mail_failed'));
  reject=false;assert.equal((await send(failed,'https://www.axisboats.co.nz')).status,200);assert.equal(messages.length,2);
+ // Route only to fixed approved destinations; keep General and legacy clients unchanged.
+ for(const [index,category] of ['general','service','parts','sales','trade-in','finance','stock','model','demo'].entries()){
+  const routed={...lead,email:`route-${index}@example.test`,category,message:'Routing mock: '+category};
+  assert.equal((await send(routed)).status,200);
+  const expected=['service','parts'].includes(category)?'service@apws.co.nz':category==='general'?'axis-recipient@example.test':'sales@apws.co.nz';
+  assert(messages.at(-1).includes('To: '+expected),category+' recipient');
+ }
+ const beforeInvalid=messages.length;
+ assert.equal((await send({...lead,category:'attacker@example.test'})).status,400);
+ assert.equal((await send({...lead,category:{to:'attacker@example.test'}})).status,400);
+ assert.equal(messages.length,beforeInvalid,'Invalid category sent mail');
  assert.equal((await fetch(base+'/.data/enquiries')).status,404);
  console.log('Enquiries verified: validation, origin, honeypot, size limits, SMTP acceptance, deduplication, private retention, failure recovery. No external email sent.');
 }finally{child.kill();smtp.close();await rm(folder,{recursive:true,force:true});}
