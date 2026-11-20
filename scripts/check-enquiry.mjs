@@ -31,18 +31,18 @@ try{
  assert.equal((await send({...lead,message:'x'.repeat(17000)})).status,413);
  assert.equal(messages.length,0);
  assert.equal((await send(lead)).status,200);assert.equal(messages.length,1);
- assert.match(messages[0],/To: axis-recipient@example.test/);assert.match(messages[0],/Reply-To: Test Visitor <visitor@example.test>/);
+ assert.match(messages[0],/To: sales@apws.co.nz/);assert.match(messages[0],/Reply-To: Test Visitor <visitor@example.test>/);
  assert.match(messages[0],/Phone: \+64 21 555 0101/);
  assert.equal((await send(lead)).status,200);assert.equal(messages.length,1,'Retry duplicated email');
  assert.equal((await send({...lead,category:'general'})).status,200);assert.equal(messages.length,1,'Explicit General duplicated legacy enquiry');
  reject=true;const failed={...lead,message:'Simulate failed email delivery.'};assert.equal((await send(failed)).status,503);
  const records=await Promise.all((await readdir(folder)).filter(n=>n.endsWith('.json')).map(async n=>JSON.parse(await readFile(path.join(folder,n),'utf8'))));assert(records.some(r=>r.status==='mail_failed'));
  reject=false;assert.equal((await send(failed,'https://www.axisboats.co.nz')).status,200);assert.equal(messages.length,2);
- // Route only to fixed approved destinations; keep General and legacy clients unchanged.
+ // Route General and legacy submissions to sales; keep service and parts separate.
  for(const [index,category] of ['general','service','parts','sales','trade-in','finance','stock','model','demo'].entries()){
   const routed={...lead,email:`route-${index}@example.test`,category,message:'Routing mock: '+category};
   assert.equal((await send(routed)).status,200);
-  const expected=['service','parts'].includes(category)?'service@apws.co.nz':category==='general'?'axis-recipient@example.test':'sales@apws.co.nz';
+  const expected=['service','parts'].includes(category)?'service@apws.co.nz':'sales@apws.co.nz';
   assert(messages.at(-1).includes('To: '+expected),category+' recipient');
  }
  const beforeInvalid=messages.length;
