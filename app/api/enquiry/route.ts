@@ -27,7 +27,7 @@ export async function POST(request:Request){
  if(!fields.first||!fields.last||!fields.phone||fields.message.length<5||!/^[^\s<>@]+@[^\s<>@]+\.[^\s<>@]+$/.test(fields.email)||data.consent!==true||!['Help me choose','Arrange a demo',...models.map(m=>m.name)].includes(fields.model)||!fields.page.startsWith('/'))return reply(400,'Please complete your name, email, phone number, boat interest, message and contact consent.');
  const category=data.category===undefined?'general':data.category;
  if(typeof category!=='string'||!['general','service','parts','sales','trade-in','finance','stock','model','demo'].includes(category))return reply(400,'Please choose a valid enquiry type.');
- const recipient=['service','parts'].includes(category)?'service@apws.co.nz':category==='general'?destination:'sales@apws.co.nz';
+ const recipient=['service','parts'].includes(category)?'service@apws.co.nz':'sales@apws.co.nz';
  if(category!=='general')fields.category=category;
  const fingerprint=createHash('sha256').update(JSON.stringify(fields)).digest('hex');
  const file=path.join(directory,fingerprint+'.json');
