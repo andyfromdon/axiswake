@@ -28,7 +28,7 @@ export async function POST(request:Request){
  const category=data.category===undefined?'general':data.category;
  if(typeof category!=='string'||!['general','service','parts','sales','trade-in','finance','stock','model','demo'].includes(category))return reply(400,'Please choose a valid enquiry type.');
  const recipient=['service','parts'].includes(category)?'service@apws.co.nz':category==='general'?destination:'sales@apws.co.nz';
- fields.category=category;
+ if(category!=='general')fields.category=category;
  const fingerprint=createHash('sha256').update(JSON.stringify(fields)).digest('hex');
  const file=path.join(directory,fingerprint+'.json');
  let locked=false;
