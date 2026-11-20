@@ -34,6 +34,7 @@ try{
  assert.match(messages[0],/To: axis-recipient@example.test/);assert.match(messages[0],/Reply-To: Test Visitor <visitor@example.test>/);
  assert.match(messages[0],/Phone: \+64 21 555 0101/);
  assert.equal((await send(lead)).status,200);assert.equal(messages.length,1,'Retry duplicated email');
+ assert.equal((await send({...lead,category:'general'})).status,200);assert.equal(messages.length,1,'Explicit General duplicated legacy enquiry');
  reject=true;const failed={...lead,message:'Simulate failed email delivery.'};assert.equal((await send(failed)).status,503);
  const records=await Promise.all((await readdir(folder)).filter(n=>n.endsWith('.json')).map(async n=>JSON.parse(await readFile(path.join(folder,n),'utf8'))));assert(records.some(r=>r.status==='mail_failed'));
  reject=false;assert.equal((await send(failed,'https://www.axisboats.co.nz')).status,200);assert.equal(messages.length,2);
