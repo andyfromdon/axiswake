@@ -1,8 +1,9 @@
 import type { NextConfig } from 'next';
-import { indexingEnabled, productionHost } from './app/lib/launch';
+import { indexingEnabled, productionHost, productionOrigin } from './app/lib/launch';
 
 const noindex = { key: 'X-Robots-Tag', value: 'noindex, nofollow, noarchive' };
 const publicHostPattern = productionHost.replaceAll('.', '\\.');
+const publicWwwHostPattern = `www\\.${publicHostPattern}`;
 
 const config: NextConfig = {
   output: 'standalone',
@@ -11,6 +12,13 @@ const config: NextConfig = {
   poweredByHeader: false,
   async redirects() {
     return [
+      // Consolidate only the public www alias; keep demo and internal endpoints unchanged.
+      ...(indexingEnabled ? [{
+        source: '/:path((?!api(?:/|$)|stock-feed(?:/|$)|_next(?:/|$)).*)',
+        has: [{ type: 'host' as const, value: publicWwwHostPattern }],
+        destination: `${productionOrigin}/:path`,
+        permanent: true,
+      }] : []),
       { source: '/build-a-boat', destination: '/boats', permanent: true },
       { source: '/contact-us', destination: '/contact', permanent: true },
       { source: '/dealer-locator', destination: '/contact', permanent: true },
@@ -25,7 +33,7 @@ const config: NextConfig = {
       ? [
           {
             source: '/:path*',
-            missing: [{ type: 'host' as const, value: publicHostPattern }],
+            missing: [{ type: 'host' as const, value: publicHostPattern }, { type: 'host' as const, value: publicWwwHostPattern }],
             headers: [noindex],
           },
           { source: '/api/:path*', headers: [noindex] },
