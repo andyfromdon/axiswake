@@ -83,9 +83,22 @@ if(indexing){
  assert.match(publicRobots,/^Disallow: \/\s*$/m);
  assert(!publicRobots.includes('Sitemap:'));
 }
-for(const host of ['axis-demo.don.digital','www.axisboats.co.nz','axisboats.co.nz.other.test']){
+for(const host of ['axis-demo.don.digital',...(!indexing?['www.axisboats.co.nz']:[]),'axisboats.co.nz.other.test']){
  assert.match((await getAs('/',host)).headers.get('x-robots-tag'),/noindex/,host);
  assert.match(await(await getAs('/robots.txt',host)).text(),/^Disallow: \/\s*$/m,host);
+}
+if(indexing){
+ for(const route of ['/','/contact?utm_source=seo-check','/robots.txt','/sitemap.xml']){
+  const redirect=await getAs(route,'www.axisboats.co.nz');
+  assert.equal(redirect.status,308,route);
+  assert.equal(redirect.headers.get('location'),'https://axisboats.co.nz'+route,route);
+  assert.equal(redirect.headers.get('x-robots-tag'),null);
+ }
+ for(const internal of ['/api/health','/stock-feed']){
+  const response=await getAs(internal,'www.axisboats.co.nz');
+  assert.equal(response.status,200,internal);
+  assert.match(response.headers.get('x-robots-tag'),/noindex/);
+ }
 }
 assert.match((await getAs('/api/health')).headers.get('x-robots-tag'),/noindex/);
 assert.match((await getAs('/stock-feed')).headers.get('x-robots-tag'),/noindex/);
